@@ -1,11 +1,11 @@
 import { ClipLoader } from "react-spinners";
+import '../../styles/SelectionLoader.css';
 
 export default function SelectionLoader() {
   return (
-    <ClipLoader
-      color="#3b82f6"
-      size={50}
-      aria-label="Loading Spinner"
-    />
-  )
+    <div className="selection-loader">
+      <ClipLoader color="#ffb238" size={48} aria-label="Loading Spinner" />
+      <p className="selection-loader-text">Shuffling questions…</p>
+    </div>
+  );
 }
