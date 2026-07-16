@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import SelectionLoader from "./SelectionLoader";
 import SelectionError from "./SelectionError";
+import GameSelection from "./GameSelection";
 
 export default function Selection() {
-  const [category, setCategory] = useState(null);
+  const [categories, setCategories] = useState([]);
   const [status, setStatus] = useState('');
 
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function Selection() {
         setStatus('loading');
         const res = await axios('https://opentdb.com/api_category.php');
         console.log(res.data.trivia_categories);
-        setCategory(res.data.trivia_categories);
+        setCategories(res.data.trivia_categories);
         setStatus('success');
       } catch {
         setStatus('error');
@@ -25,6 +26,7 @@ export default function Selection() {
     <div>
       {status === 'loading' && <SelectionLoader />}
       {status === 'error' && <SelectionError />}
+      {status === 'success' && <GameSelection categories={categories} />}
     </div>
   )
 }
