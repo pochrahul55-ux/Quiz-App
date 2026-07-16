@@ -1,0 +1,51 @@
+.hero-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  max-width: 560px;
+  margin-bottom: 2rem;
+}
+
+.hero-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(243, 239, 227, 0.06);
+  border: 0.5px solid rgba(243, 239, 227, 0.15);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.hero-option-letter {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(243, 239, 227, 0.1);
+  color: #b9cfc8;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-option-text {
+  font-size: 14px;
+  color: #d8d2c2;
+}
+
+.hero-option-correct {
+  background: rgba(255, 178, 56, 0.14);
+  border-color: #ffb238;
+}
+
+.hero-option-correct .hero-option-letter {
+  background: #ffb238;
+  color: #4a2e00;
+}
+
+.hero-option-correct .hero-option-text {
+  color: #ffdba0;
+  font-weight: 500;
+}

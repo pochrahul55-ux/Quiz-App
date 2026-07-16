@@ -1,6 +1,6 @@
 import './App.css';
-import StartScreen from './Components/Landing Page/StartScreen';
-import Hero from './Components/Landing Page/Hero';
+import StartScreen from './Components/LandingPage/StartScreen';
+import Hero from './Components/LandingPage/Hero';
 
 function App() {
   return (
