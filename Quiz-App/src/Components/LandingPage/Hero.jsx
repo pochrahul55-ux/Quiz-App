@@ -1,5 +1,6 @@
 import '../../styles/Hero.css';
 import HeroCTA from './HeroCTA';
+import HeroFooter from './HeroFooter';
 import HeroOptions from './HeroOptions';
 
 export default function Hero() {
@@ -9,6 +10,7 @@ export default function Hero() {
       <h1 className="hero-heading">How much do you actually know?</h1>
       <HeroOptions />
       <HeroCTA />
+      <HeroFooter />
     </section>
   )
 }
