@@ -1,0 +1,29 @@
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta-button {
+  background: #ffb238;
+  border: none;
+  color: #2a1b00;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero-cta-button:hover {
+  background: #ffc35e;
+}
+
+.hero-cta-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #8fa69d;
+}
