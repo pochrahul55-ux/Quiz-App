@@ -1,0 +1,48 @@
+.selection-error {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.selection-error-text {
+  font-family: 'Inter', sans-serif;
+  color: #a32d2d;
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.selection-error-retry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.15s ease-in-out;
+}
+
+.selection-error-retry:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1), 0 2px 4px -1px rgba(79, 70, 229, 0.06);
+}
+
+.selection-error-retry:active {
+  transform: scale(0.95);
+}
