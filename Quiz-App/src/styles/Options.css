@@ -23,3 +23,27 @@
   border-color: #ffb238;
   transform: translateY(-2px);
 }
+
+.options button.answer {
+  border-color: #ffb238;
+}
+
+.options button.correct {
+  background-color: rgba(76, 175, 100, 0.16);
+  border-color: #4caf64;
+  color: #a8e6b8;
+}
+
+.options button.wrong {
+  background-color: rgba(239, 100, 97, 0.14);
+  border-color: #ef6461;
+  color: #f5b3b1;
+}
+
+.options button:disabled {
+  cursor: not-allowed;
+}
+
+.options button:disabled:hover {
+  transform: none;
+}
