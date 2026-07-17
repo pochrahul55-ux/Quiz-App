@@ -4,7 +4,7 @@ import SelectionLoader from "./SelectionLoader";
 import SelectionError from "./SelectionError";
 import GameSelection from "./GameSelection";
 
-export default function Selection() {
+export default function Selection({ dispatch }) {
   const [categories, setCategories] = useState([]);
   const [status, setStatus] = useState('');
 
@@ -13,7 +13,7 @@ export default function Selection() {
       try {
         setStatus('loading');
         const res = await axios('https://opentdb.com/api_category.php');
-        console.log(res.data.trivia_categories);
+        // console.log(res.data.trivia_categories);
         setCategories(res.data.trivia_categories);
         setStatus('success');
       } catch {
@@ -26,7 +26,7 @@ export default function Selection() {
     <div>
       {status === 'loading' && <SelectionLoader />}
       {status === 'error' && <SelectionError />}
-      {status === 'success' && <GameSelection categories={categories} />}
+      {status === 'success' && <GameSelection categories={categories} dispatch={dispatch} />}
     </div>
   )
 }

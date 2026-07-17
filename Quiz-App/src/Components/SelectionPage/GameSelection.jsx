@@ -3,8 +3,9 @@ import '../../styles/GameSelection.css';
 
 const difficultyLevel = ['Easy', 'Medium', 'Hard'];
 
-export default function GameSelection({ categories }) {
+export default function GameSelection({ categories, dispatch }) {
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedLevel, setSelectedLevel] = useState('')
 
   return (
     <div className="game-selection">
@@ -18,12 +19,14 @@ export default function GameSelection({ categories }) {
         ))}
       </select>
 
-      <select className="game-selection-dropdown">
+      <select className="game-selection-dropdown" onChange={(e) => setSelectedLevel(e.target.value)}>
         <option value="">Choose a difficulty</option>
         {difficultyLevel.map((level) => (
           <option key={level} value={level}>{level}</option>
         ))}
       </select>
+
+      <button className="game-selection-button" onClick={() => dispatch({ type: 'begin', payload: { category: selectedCategory, difficulty: selectedLevel } })}>Let's begin</button>
     </div>
   )
 }

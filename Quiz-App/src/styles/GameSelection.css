@@ -79,3 +79,24 @@
     transform: translateY(0);
   }
 }
+
+.game-selection-button {
+  background: #ffb238;
+  border: none;
+  color: #2a1b00;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 11px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out 0.5s forwards;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.game-selection-button:hover {
+  background: #ffc35e;
+  transform: translateY(-2px);
+}
