@@ -5,6 +5,7 @@ import { useReducer } from 'react';
 import Selection from './Components/SelectionPage/Selection';
 import StartQuiz from './Components/StartQuiz/StartQuiz';
 import Quiz from './Components/StartQuiz/Quiz';
+import Progress from './Components/StartQuiz/Progress';
 
 const initialState = {
   questions: [],
@@ -13,7 +14,10 @@ const initialState = {
   difficulty: null,
   index: 0,
   userAnswer: null,
+  points: 0,
 }
+
+const ANSWER_POINTS = 10;
 
 function reducer(state, action) {
   switch (action.type) {
@@ -24,7 +28,15 @@ function reducer(state, action) {
     case 'questionsLoaded':
       return { ...state, status: 'quiz', questions: action.payload }
     case 'newAnswer':
-      return { ...state, userAnswer: action.payload }
+      const currentQuestion = state.questions.at(state.index);
+
+      return {
+        ...state,
+        userAnswer: action.payload,
+        points: action.payload === currentQuestion.correctAnswerIndex
+          ? state.points + ANSWER_POINTS
+          : state.points
+      }
     case 'nextQuestion':
       return { ...state, index: state.index + 1, userAnswer: null }
     default:
@@ -33,7 +45,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, category, difficulty, index, userAnswer }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, category, difficulty, index, userAnswer, points }, dispatch] = useReducer(reducer, initialState);
+
+  const numOfQuestions = questions.length;
+  const maxPoints = numOfQuestions * ANSWER_POINTS;
 
   return (
     <>
@@ -44,7 +59,12 @@ function App() {
       )}
       {status === 'selection' && <Selection dispatch={dispatch} />}
       {status === 'loadingQuestions' && <StartQuiz category={category} difficulty={difficulty} dispatch={dispatch} />}
-      {status === 'quiz' && <Quiz questions={questions} index={index} dispatch={dispatch} userAnswer={userAnswer} />}
+      {status === 'quiz' && (
+        <>
+          <Progress numOfQuestions={numOfQuestions} index={index} points={points} maxPoints={maxPoints} />
+          <Quiz questions={questions} index={index} dispatch={dispatch} userAnswer={userAnswer} />
+        </>
+      )}
     </>
   )
 }
