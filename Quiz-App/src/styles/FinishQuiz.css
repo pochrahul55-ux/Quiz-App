@@ -1,0 +1,49 @@
+.finish-quiz {
+  background-color: #123832;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.finish-quiz-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffb238;
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+.finish-quiz-score {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #f3efe3;
+  margin: 0;
+  opacity: 0;
+  animation: fadeUp 0.6s ease-out 0.15s forwards;
+}
+
+.finish-quiz-max {
+  font-size: 28px;
+  color: #8fa69d;
+}
+
+.finish-quiz-percent {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #8fa69d;
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out 0.3s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
