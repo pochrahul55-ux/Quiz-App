@@ -16,6 +16,7 @@ const initialState = {
   index: 0,
   userAnswer: null,
   points: 0,
+  highScore: null,
 };
 
 const ANSWER_POINTS = 10;
@@ -46,7 +47,11 @@ function reducer(state, action) {
     case "nextQuestion":
       return { ...state, index: state.index + 1, userAnswer: null };
     case "finishQuiz":
-      return { ...state, status: "finished" };
+      return {
+        ...state,
+        status: "finished",
+        highScore: state.points > state.highScore ? state.points : state.highScore,
+      };
     case "restartQuiz":
       return { ...initialState, questions: state.questions };
     default:
@@ -55,8 +60,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status, category, difficulty, index, userAnswer, points }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { questions, status, category, difficulty, index, userAnswer, points, highScore },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const numOfQuestions = questions.length;
   const maxPoints = numOfQuestions * ANSWER_POINTS;
@@ -96,6 +103,7 @@ function App() {
           maxPoints={maxPoints}
           scorePercentage={scorePercentage}
           dispatch={dispatch}
+          highScore={highScore}
         />
       )}
     </>

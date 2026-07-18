@@ -10,7 +10,7 @@
 }
 
 .finish-quiz-eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -21,7 +21,7 @@
 }
 
 .finish-quiz-score {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 64px;
   font-weight: 700;
   color: #f3efe3;
@@ -36,14 +36,20 @@
 }
 
 .finish-quiz-percent {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
   color: #8fa69d;
   opacity: 0;
   animation: fadeUp 0.5s ease-out 0.3s forwards;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

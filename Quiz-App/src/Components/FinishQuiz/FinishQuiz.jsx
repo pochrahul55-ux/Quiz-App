@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "../../styles/FinishQuiz.css";
 import RestartQuiz from "./RestartQuiz";
+import "../../styles/HighScore.css";
 
-export default function FinishQuiz({ points, maxPoints, scorePercentage, dispatch }) {
+export default function FinishQuiz({ points, maxPoints, scorePercentage, dispatch, highScore }) {
   const [displayedPoints, setDisplayedPoints] = useState(0);
 
   useEffect(() => {
@@ -28,6 +29,10 @@ export default function FinishQuiz({ points, maxPoints, scorePercentage, dispatc
         <span className="finish-quiz-max"> / {maxPoints}</span>
       </p>
       <p className="finish-quiz-percent">{scorePercentage}% correct</p>
+
+      <p className="high-score">
+        Your high score is <span className="high-score-value">{highScore}</span>
+      </p>
 
       <RestartQuiz dispatch={dispatch} />
     </div>

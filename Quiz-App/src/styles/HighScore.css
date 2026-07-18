@@ -1,0 +1,55 @@
+.high-score {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: #8fa69d;
+  text-align: center;
+  margin-top: 0.75rem;
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out 0.6s forwards;
+}
+
+.high-score-value {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  background: linear-gradient(90deg, #ffb238, #ffdba0, #ffb238);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation:
+    shimmer 2.5s linear infinite,
+    pop 0.4s ease-out 0.6s backwards;
+  display: inline-block;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
