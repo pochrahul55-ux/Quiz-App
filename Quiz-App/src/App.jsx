@@ -18,7 +18,7 @@ const initialState = {
   index: 0,
   userAnswer: null,
   points: 0,
-  highScore: null,
+  highScore: 0,
   timer: 0,
 };
 
@@ -65,6 +65,7 @@ function reducer(state, action) {
         ...state,
         timer: state.timer - 1,
         status: state.timer === 0 ? "finished" : state.status,
+        highScore: state.points > state.highScore ? state.points : state.highScore,
       };
     default:
       throw new Error("Unknown Action");
