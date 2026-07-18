@@ -34,6 +34,7 @@ export default function StartQuiz({ category, difficulty, dispatch }) {
       const formattedQuestions = res.data.results.map(formatQuestions);
       console.log(formattedQuestions);
       dispatch({ type: "questionsLoaded", payload: formattedQuestions });
+      dispatch({ type: "startTimer" });
     };
     fetchQuestions();
   }, [category, difficulty, dispatch]);

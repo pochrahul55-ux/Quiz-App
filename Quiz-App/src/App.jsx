@@ -1,4 +1,5 @@
 import "./App.css";
+import "./styles/Quiz.css";
 import StartScreen from "./Components/LandingPage/StartScreen";
 import Hero from "./Components/LandingPage/Hero";
 import { useReducer } from "react";
@@ -7,6 +8,7 @@ import StartQuiz from "./Components/StartQuiz/StartQuiz";
 import Quiz from "./Components/StartQuiz/Quiz";
 import Progress from "./Components/StartQuiz/Progress";
 import FinishQuiz from "./Components/FinishQuiz/FinishQuiz";
+import Timer from "./Components/StartQuiz/Timer";
 
 const initialState = {
   questions: [],
@@ -17,9 +19,11 @@ const initialState = {
   userAnswer: null,
   points: 0,
   highScore: null,
+  timer: 0,
 };
 
 const ANSWER_POINTS = 10;
+const SECS_PER_QUESTION = 30;
 
 function reducer(state, action) {
   switch (action.type) {
@@ -54,6 +58,14 @@ function reducer(state, action) {
       };
     case "restartQuiz":
       return { ...initialState, questions: state.questions };
+    case "startTimer":
+      return { ...state, timer: state.questions.length * SECS_PER_QUESTION };
+    case "tick":
+      return {
+        ...state,
+        timer: state.timer - 1,
+        status: state.timer === 0 ? "finished" : state.status,
+      };
     default:
       throw new Error("Unknown Action");
   }
@@ -61,7 +73,7 @@ function reducer(state, action) {
 
 function App() {
   const [
-    { questions, status, category, difficulty, index, userAnswer, points, highScore },
+    { questions, status, category, difficulty, index, userAnswer, points, highScore, timer },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -81,13 +93,14 @@ function App() {
         <StartQuiz category={category} difficulty={difficulty} dispatch={dispatch} />
       )}
       {status === "quiz" && (
-        <>
+        <div className="quiz-screen">
           <Progress
             numOfQuestions={numOfQuestions}
             index={index}
             points={points}
             maxPoints={maxPoints}
           />
+          <Timer dispatch={dispatch} timer={timer} />
           <Quiz
             questions={questions}
             index={index}
@@ -95,7 +108,7 @@ function App() {
             userAnswer={userAnswer}
             numOfQuestions={numOfQuestions}
           />
-        </>
+        </div>
       )}
       {status === "finished" && (
         <FinishQuiz

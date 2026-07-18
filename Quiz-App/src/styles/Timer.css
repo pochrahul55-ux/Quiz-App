@@ -1,0 +1,31 @@
+.timer {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #f3efe3;
+  background-color: rgba(243, 239, 227, 0.08);
+  border: 0.5px solid rgba(243, 239, 227, 0.15);
+  border-radius: 12px;
+  padding: 12px 32px;
+  display: inline-block;
+  margin: 1.5rem auto;
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.timer-low {
+  color: #ef6461;
+  border-color: #ef6461;
+  background-color: rgba(239, 100, 97, 0.1);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}

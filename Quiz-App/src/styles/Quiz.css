@@ -27,3 +27,11 @@
   background: #ffc35e;
   transform: translateY(-2px);
 }
+
+.quiz-screen {
+  background-color: #123832;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
