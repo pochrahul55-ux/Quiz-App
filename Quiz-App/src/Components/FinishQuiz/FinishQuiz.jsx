@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "../../styles/FinishQuiz.css";
+import RestartQuiz from "./RestartQuiz";
 
-export default function FinishQuiz({ points, maxPoints, scorePercentage }) {
+export default function FinishQuiz({ points, maxPoints, scorePercentage, dispatch }) {
   const [displayedPoints, setDisplayedPoints] = useState(0);
 
   useEffect(() => {
@@ -27,6 +28,8 @@ export default function FinishQuiz({ points, maxPoints, scorePercentage }) {
         <span className="finish-quiz-max"> / {maxPoints}</span>
       </p>
       <p className="finish-quiz-percent">{scorePercentage}% correct</p>
+
+      <RestartQuiz dispatch={dispatch} />
     </div>
   );
 }

@@ -47,6 +47,8 @@ function reducer(state, action) {
       return { ...state, index: state.index + 1, userAnswer: null };
     case "finishQuiz":
       return { ...state, status: "finished" };
+    case "restartQuiz":
+      return { ...initialState, questions: state.questions };
     default:
       throw new Error("Unknown Action");
   }
@@ -89,7 +91,12 @@ function App() {
         </>
       )}
       {status === "finished" && (
-        <FinishQuiz points={points} maxPoints={maxPoints} scorePercentage={scorePercentage} />
+        <FinishQuiz
+          points={points}
+          maxPoints={maxPoints}
+          scorePercentage={scorePercentage}
+          dispatch={dispatch}
+        />
       )}
     </>
   );
