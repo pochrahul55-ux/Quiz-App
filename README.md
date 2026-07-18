@@ -42,9 +42,6 @@ npm run build
 
 Deployed on [Vercel](https://vercel.com). Framework preset: Vite, output directory: `dist`.
 
-## Roadmap
-
-- [ ] Timer — countdown for each question or the overall quiz
 
 ## Notes
 
